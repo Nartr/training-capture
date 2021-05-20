@@ -1,0 +1,34 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+  <link href="/resources/styles/custom_styles.css" rel="stylesheet" />
+  <title>Login</title>
+</head>
+<body>
+<form th:action="@{/login}" method="post" class="form-signin">
+  <div class="text-center mb-4">
+    <img class="mb-4" src="/resources/images/Logo_dastrainingszentrum.png" alt="Logo dastrainingszentrum">
+  </div>
+  <div th:if="${param.error}" class="alert alert-danger" role="alert">
+    Benutzername oder Passwort falsch
+  </div>
+  <div th:if="${param.logout}" class="alert alert-success" role="alert">
+    Du wurdest erfolgreich ausgeloggt
+  </div>
+  <div th:if="${param.expired}" class="alert alert-danger" role="alert">
+    Deine Sitzung ist abgelaufen
+  </div>
+  <div class="form-label-group">
+    <input name="username" type="text" class="form-control" id="inputEmail" placeholder="Email Adresse" required autofocus>
+    <label for="inputEmail">Benutzername</label>
+  </div>
+  <div class="form-label-group">
+    <input name="password" type="password" class="form-control" id="inputPassword" placeholder="Passwort" required>
+    <label for="inputPassword">Passwort</label>
+  </div>
+  <button type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
+  <p class="mt-5 mb-3 text-muted text-center">© 2018-2019</p>
+</form>
+</body>
+</html>
